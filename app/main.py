@@ -6,6 +6,10 @@ from typing import List
 
 from contextlib import asynccontextmanager
 
+# Load model
+MODEL_PATH = "model.joblib"
+model = None
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     global model
