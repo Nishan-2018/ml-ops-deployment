@@ -8,7 +8,10 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
 # Load model
-MODEL_PATH = "model.joblib"
+# Use absolute path to work in both Docker and test environments
+import pathlib
+BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
+MODEL_PATH = BASE_DIR / "model.joblib"
 model = None
 
 @asynccontextmanager
